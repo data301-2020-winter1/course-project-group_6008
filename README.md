@@ -17,7 +17,7 @@ Details for Milestone are available on Canvas (left sidebar, Course Project) or 
 
 ## Team Members
 
-- Person 1: one sentence about you!
+- Nick: 4th year management major excited to be working with Python and Pandas! 
 - Person 2: one sentence about you!
 - Person 3: one sentence about you!
 
