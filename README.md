@@ -17,7 +17,7 @@ We're intending to use this data to analyze the changes in price / volatility of
 
 {We found our dataset on Kaggle.com, and is a portion of a collection of data called "Cryptocurrency Historical Prices" created by SRK.
 
-The main dateset we are using is called "bitcoin_dataset" and it is comprised of 2920 rows and 24 columns, where the rows represent the value of one Bitcoin at a specific point in time, and the columns represent various aspects of Bitcoin, including total price, market cap, and cost per transaction. 
+The main dateset we are using is called "bitcoin_dataset" and it is comprised of 2920 rows and 24 columns, where the rows represent a specific point in time, and the columns represent various financial information about Bitcoin, including total price, market cap, and cost per transaction, amoung others.
 
 The purpose of the dataset is to help individuals understand the historical data of Bitcoin in order to help them predict the its future prices. We intend on using the data for the same reason, in order to better understand the specific changes that happened to this currency over this period.
 
