@@ -25,7 +25,7 @@ It is made up of primnarily quantitative data, which should make it easy for us 
 
 ## Team Members
 
-- Nick: Nick is a 4th-year UBCO student pursuing a bachelor of management with a specialization in marketing.
+- Nick: Nick is a 5th-year UBCO student pursuing a bachelor of management with a specialization in marketing.
 
 - Carla: Carla is a 36-year-old computer science major with a minor in polical science because I enjoy technology and how our government runs our country.
 
