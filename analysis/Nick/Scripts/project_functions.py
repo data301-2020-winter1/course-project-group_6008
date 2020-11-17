@@ -1,89 +1,34 @@
-{
- "cells": [
-  {
-   "cell_type": "code",
-   "execution_count": 55,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "import pandas as pd"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 81,
-   "metadata": {},
-   "outputs": [
-    {
-     "ename": "IndentationError",
-     "evalue": "expected an indented block (<ipython-input-81-6e3d4ff32374>, line 19)",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-81-6e3d4ff32374>\"\u001b[0;36m, line \u001b[0;32m19\u001b[0m\n\u001b[0;31m    elif Position == 'SG':\u001b[0m\n\u001b[0m    ^\u001b[0m\n\u001b[0;31mIndentationError\u001b[0m\u001b[0;31m:\u001b[0m expected an indented block\n"
-     ]
-    }
-   ],
-   "source": [
-    "def load_and_wrangle(csv_file):\n",
-    "    players_stats_og = pd.read_csv(csv_file)\n",
-    "    \n",
-    "    players_stats_university = (\n",
-    "        players_stats_og[players_stats_og['Collage'].notnull()]\n",
-    "        .reset_index()\n",
-    "        .drop(columns=['index']) \n",
-    "        )\n",
-    "\n",
-    "    players_stats_university_wrangled = (\n",
-    "        players_stats_university.drop(columns = ['BMI', 'Height', 'Weight', 'Birth_Place'])\n",
-    "        .rename(columns={'Pos' : 'Position'})\n",
-    "        .sort_values(by = 'Position', ascending=False)\n",
-    "    )\n",
-    "def filter_by_position(dataframe, Position):\n",
-    "    \n",
-    "    if Position == 'PG':\n",
-    "        #x = PG's Weighted Score Calculation\n",
-    "    elif Position == 'SG':\n",
-    "        #x = players_stats_university_wrangled['column_name'] * weight + players_stats_university_wrangled['column_name'] * weight\n",
-    "    elif Position == 'SF':\n",
-    "        #x = players_stats_university_wrangled['column_name'] * weight + players_stats_university_wrangled['column_name'] * weight\n",
-    "    elif Position == 'PF':\n",
-    "        #x = players_stats_university_wrangled['column_name'] * weight + players_stats_university_wrangled['column_name'] * weight\n",
-    "    elif Position == 'C':\n",
-    "        #x = players_stats_university_wrangled['column_name'] * weight + players_stats_university_wrangled['column_name'] * weight\n",
-    "    else:\n",
-    "        return print(\"Invalid Position\")\n",
-    "    \n",
-    "    players_stats_university_wrangled_by_position = (\n",
-    "        dataframe.loc[dataframe['Position'] == Position]\n",
-    "        .sort_values(by = 'Name', ascending=True)\n",
-    "        .reset_index()\n",
-    "        .drop(columns=[x])\n",
-    "        #.assign(Weighted_Score = x)\n",
-    "        #.rename(columns={'Weighted_Score' : 'Weighted Score'})\n",
-    "        )\n",
-    "    return players_stats_university_wrangled_by_position\n"
-   ]
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.8.3"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 4
-}
+import pandas as pd
+
+def load_and_process(url_or_csv_file, Player_Position):
+
+    players_stats_og = pd.read_csv(url_or_csv_file) #Read in the csv file
+
+    players_stats_university = (
+        players_stats_og[players_stats_og['Collage'].notnull()]
+        .reset_index()
+        .drop(columns=['index']) 
+        ) #Filter data to only players that attended a US college prior to getting drafted in the NBA
+   
+    players_stats_university_wrangled = (
+        players_stats_university.rename(columns={'Pos' : 'Position'})
+        .sort_values(by = 'Position', ascending=False)
+        .reset_index()
+        .drop(columns = ['BMI', 'Height', 'Weight', 'Birth_Place', 'index'])
+        ) #Wrangle data and remove irrelevant columns 
+    
+    #if Player_Position == 'PG' x = 1
+    #elif Player_Position == 'SG': x = 2
+    #elif Player_Position == 'PF': x = 3
+    #elif Player_Position == 'SF': x = 4
+    #elif Player_Position == 'C':x = 5
+    #else:print("Invalid Position")'
+   
+    players_stats_university_wrangled_by_position = (
+        players_stats_university_wrangled.loc[players_stats_university_wrangled['Position'] == Player_Position]
+        .sort_values(by = 'EFF', ascending=False)
+        .reset_index()
+        .drop(columns=['index'])
+        ) #Filter data by player position and sort by their effeciency rating in descending order
+    
+    return players_stats_university_wrangled_by_position
