@@ -3,9 +3,13 @@ import pandas as pd
 def load_and_process(url_or_csv_file):
 
     players_stats_og = pd.read_csv(url_or_csv_file) #Read in the csv file
-
+    
+    return players_stats_og
+    
+def filter_by_uni(DataFrame):
+    
     players_stats_university = (
-        players_stats_og[players_stats_og['Collage'].notnull()]
+        DataFrame[DataFrame['Collage'].notnull()]
         #.rename(columns={'Collage':'College'}) TEST THIS !!!!!
         .reset_index()
         .drop(columns=['index']) 
