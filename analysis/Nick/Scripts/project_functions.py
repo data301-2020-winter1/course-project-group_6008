@@ -26,18 +26,11 @@ def filter_by_uni(DataFrame):
     
 def filter_by_position(DataFrame, Player_Position):
     
-    #if Player_Position == 'PG' x = 1
-    #elif Player_Position == 'SG': x = 2
-    #elif Player_Position == 'PF': x = 3
-    #elif Player_Position == 'SF': x = 4
-    #elif Player_Position == 'C':x = 5
-    #else:print("Invalid Position")'
-   
     players_stats_university_wrangled_by_position = (
         DataFrame.loc[DataFrame['Position'] == Player_Position]
         .sort_values(by = 'EFF', ascending=False)
         .reset_index()
         .drop(columns=['index'])
-        ) #Filter data by player position and sort by their efficiency rating in descending order
+        )
     
     return players_stats_university_wrangled_by_position
