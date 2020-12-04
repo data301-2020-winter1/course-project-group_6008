@@ -20,10 +20,10 @@ This dataset contains a complete collection of statistics for every player in th
 
 ## Team Members
 
-- Nick: Nick is a 4th-year UBCO student pursuing a bachelor of management with a specialization in marketing.
+- Nick: Nick is a 4th-year UBCO student pursuing a bachelor of management with a specialization in marketing and finance.
 
 - Graham: Graham is a 3rd-year UBCO transfer student pursuing a major in computer science with a minor in biochemistry.
 
 ## References
 
-{Add your stuff here}
+{Dataset Used for Analysis - https://www.kaggle.com/drgilermo/nba-players-stats-20142015}
