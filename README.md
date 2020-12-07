@@ -26,4 +26,6 @@ This dataset contains a complete collection of statistics for every player in th
 
 ## References
 
-{Dataset Used for Analysis - https://www.kaggle.com/drgilermo/nba-players-stats-20142015}
+{Dataset Used for Analysis - https://www.kaggle.com/drgilermo/nba-players-stats-20142015
+
+Screencast - https://www.youtube.com/watch?v=7MQ9oZZWTPk}
